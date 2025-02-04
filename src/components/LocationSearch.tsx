@@ -4,7 +4,7 @@ import { search } from "../api/search";
 interface LocationSearchProps {
   onPlaceClick: (place: Place) => void;
 }
-function LocationSearch({ onPlaceClick }) {
+function LocationSearch({ onPlaceClick }:LocationSearchProps) {
   const [places, setPlaces] = useState<Place[]>([]);
   const [term, setTerm] = useState("");
 
@@ -13,6 +13,7 @@ function LocationSearch({ onPlaceClick }) {
     
    const results= await search(term)
    setPlaces(results)
+   console.log(results)
   };
 
   return (
